@@ -8,6 +8,34 @@
 <body>
     <header>
         <h1>Welcome to My Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">NAV1</a></li>
+                <li><a href="#about">NAV2</a></li>
+                <li><a href="#contact">NAV3</a></li>
+            </ul>
+        </nav>
     </header>
+    <section>
+        <h2>Job portal</h2>
+        <p>This is a job portal where recruiters can post jobs and job seekers can find opportunities.</p>
+    </section>
+    <form>
+        <search>
+            <input type="text" placeholder="Search..." name="query" required size="60">
+            <button type="submit">Go</button>
+        </search>
+    </form>
+    <div style="display: flex; flex-direction: right;; gap: 20px; margin-top: 20px;">
+    <div style="background-color: lightgrey; width: 150px; height: 150px; text-align: center; padding:5%;" onclick="location.href='rlogin.html'">
+        RECRUITER SECTION
+    </div>
+    <div style="background-color: lightblue; width: 150px; height: 150px; text-align: center; padding:5%; margin-top:100px ;" onclick="location.href='slogin.html'">
+        JOB SEEKER SECTION
+    </div>
+    </div>
+    <footer style="margin-top: 50px; text-align: center;">
+        <p>&copy; 2026 My Website</p>
+    </footer>
 </body>
 </html>
