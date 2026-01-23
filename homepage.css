@@ -180,3 +180,15 @@ header h1{
         width: 280px;
     }
 }
+body{
+    overflow-x: hidden;
+}
+
+.about h2{
+    font-size: clamp(48px, 8vw, 64px);
+}
+
+.wrapper1{
+    max-width: 1200px;
+    margin: auto;
+}
