@@ -7,12 +7,12 @@
    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
-    <div class="sidebar">
+<div class="dashboard">
+  <div class="sidebar">
   <div class="logo">
     <div class="logo-icon">H</div>
     <span class="logo-text">HireHub</span>
   </div>
-
   <ul class="menu">
     <li class="menu-item active">
       <span>Dashboard</span>
@@ -25,17 +25,53 @@
     <li class="menu-item">Settings</li>
   </ul>
 </div>
+<div class="wrapper1">
 <!-- top-navbar -->
 <div class="top-navbar">
     <div class="search-bar">
-        <input type="text" placeholder="Search jobs, companies...">
-        <button class="search-button">🔍</button>
+         <form class="search-form">
+                <input type="search" placeholder=" 🔍Search jobs, companies..." />
+                <button  type="submit">Search</button>
+          </form>
     </div>
     <div class="user-profile">
         <img src="icon/jopperson.jpeg" alt="User Avatar" class="avatar">
         <span class="username">Ravi Raj</span>
     </div>
 </div>
-
+<!-- greetings -->
+<div class="greetings-section">
+    <h1>Welcome to Your Dashboard</h1>
+    <p>Here you can manage your job search, view saved jobs, track applications, and more.</p>
+</div> 
+<!-- main content -->
+ <div class="main-content">
+  <!-- applied-jobs -->
+   <div class="content1">
+    <span>ICON</span>
+    <number>1</number>
+    <p>Applied Jobs</p>
+  </div>
+ <!-- saved-jobs -->
+  <div class="content1">
+    <span>ICON</span>
+    <number>1</number>
+    <p>Saved jobs</p>
+  </div>
+ <!-- profile-views -->
+ <div class="content1">
+    <span>ICON</span>
+    <number>1</number>
+    <p>Profile Views</p>
+  </div>
+ <!-- interviews-calls -->
+ <div class="content1">
+    <span>ICON</span>
+    <number>1</number>
+    <p>Interviews Calls</p>
+  </div>
+ </div>
+</div>
+</div>
 </body>
 </html>
