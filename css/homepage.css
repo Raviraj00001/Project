@@ -43,78 +43,87 @@
     padding: 50px;
 }
 
-/* ---------------- SEARCH ---------------- */
-.search-section {
-    padding: 80px;
-    display: flex;
-    justify-content: center;
-    height: 230px;
-    width: 100%;
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
 }
 
+/* ================= NAV ================= */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.75;
+}
+
+.nav-right a:hover {
+    opacity: 1;
+}
+
+/* ================= SEARCH ================= */
 .search-form {
     display: flex;
     gap: 10px;
-    width: 60%;
+    width: 380px;
 }
 
 .search-form input {
     flex: 1;
-    padding: 10px;
-    font-size: 16px;
+    padding: 10px 16px;
     border-radius: 20px;
-    border: 2px solid #1b1717;
+    border: none;
+    outline: none;
 }
 
 .search-form button {
-    background-color: #1d1e20;
-    color: rgb(250, 250, 252);
-    font-weight: bold;
-    border: none;
     padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
     border-radius: 20px;
+    border: none;
+    background: #1d1e20;
+    color: white;
+    cursor: pointer;
 }
 
 .search-form button:hover {
-    background-color: #244ec9;
+    background: #ffaa00;
 }
 
 /* ---------------- HEADER ---------------- */
-.header{
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 60px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    background-color:rgb(53, 57, 55);
-    padding:24px 25px;
-    position: sticky;
-    top:0;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 100;
 }
 
-.header nav{
-    display: flex;
-    gap:17px;
-    align-items: center;
+.logo {
+    font-size: 22px;
+    font-weight: 700;
 }
-
-.header nav a{
-    text-decoration: none;
-    background-color: rgb(224, 224, 224);
-    padding: 10px;
-    border-radius: 10px;
-    color: black;
-    margin: 10px;
-}
-
-.header nav a:hover{
-    background-color: rgb(104, 106, 118);
-    color: white;
-    translate: 0 -10px;
-}
-
 header h1{
     color: white;
+}
+
+.banner{
+    margin-top: 80px;
+    padding: 40px;
+    background-color: #f4f4f4;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* ---------------- ABOUT SECTION ---------------- */
@@ -126,6 +135,39 @@ header h1{
     margin-bottom: 20px;
     font-size: 64px;   /* ⬅ was 100px (breaking balance) */
 }
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 60px 10%;
+}
+
+/* Left text */
+.paracard {
+    flex: 1;
+}
+
+.paracard span {
+    font-size: 50px;
+    line-height: 1.8;
+    color: #000000;
+    font-weight: bold;
+    /* adjust if needed */
+}
+
+/* Right image */
+.jopperson {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about-img {
+    max-width: 420px;
+    width: 100%;
+    height: auto;
+}
 
 /* ---------------- MAIN WRAPPER (FIXED) ---------------- */
 .wrapper1{
@@ -136,34 +178,25 @@ header h1{
     padding: 20px;
     margin-top: 8px;
 }
-
-/* ---------------- TEXT CARD ---------------- */
-.paracard{
-    width: 700px;
-    padding: 18px;
-    border-radius: 10px;
-    color: rgb(77, 76, 76);
-    background: #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+.add-btn,
+.btn-primary {
+    background: linear-gradient(90deg, #ffae00, #ff5f00);
+    border: none;
+    padding: 12px 26px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-.paracard p{
-    font-size: 15px;
-    line-height: 1.4;
+.btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 12px 26px;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
 }
-
-/* ---------------- IMAGE ---------------- */
-.jopperson{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.jopperson img{
-    width: 380px;
-    height: auto;
-}
-
 /* ---------------- RESPONSIVE ---------------- */
 @media (max-width: 768px){
     .wrapper1{

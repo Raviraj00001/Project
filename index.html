@@ -7,37 +7,46 @@
     <link rel="stylesheet" href="css/homepage.css">
 </head>
 <body>
-    <header class="header">
-        <h1>Welcome to My Website</h1>
-        <nav>
-           <a href="index.html">Home</a>
-           <a href="#login-section">Login</a>   
-           <a href="#contact">Contact</a>
-        </nav>
-    </header>
-     <!-- SEARCH BAR -->
-    <section class="search-section">
+    <header>
+    <div class="logo">HOME</div>
+    <div>
     <form class="search-form">
-        <input type="search" placeholder="Search jobs">
+        <input type="search" placeholder="Search Events">
         <button type="submit">Search</button>
     </form>
-   </section>
-   <!-- SEARCH BAR END -->
-    <div class="wrapper1">
-    <section class="about">
-        <h2>Job Portal</h2>
-        <div class="paracard">
-        <p>
-A Job Portal is an online platform designed to connect job seekers with employers in a simple, fast, and efficient manner. It acts as a bridge between talented individuals and organizations by providing a centralized space where companies can post job vacancies and candidates can explore opportunities that match their skills, qualifications, and career goals.
+    </div>
 
-Through a job portal, job seekers can create profiles, upload resumes, search for jobs across multiple industries, apply for positions online, and track the status of their applications in real time. Features like job alerts, personalized recommendations, and advanced filters help candidates find relevant jobs more easily and save valuable time during their job search.
-</p>
-
-    </section>
-    <div class="jopperson">
-    <img src="icon/jopperson.jpeg" alt="Job Portal Image" class="about-img">
+        <nav>
+        <div class="nav-right">
+        <a href="#">FAQs</a>
+        <a href="#">About us</a>
+        <a href="#">Need Help?</a>
+        <button class="add-btn" onclick="location.href='login.html'">Login / SignUp</button>
+        </div>
+    </nav>
+</header>
+<br>
+<br>
+<br>
+<div class="banner">
+    <h1>Welcome to Job Portal</h1>
+    <div class="typing-container">
+        <span class="typing-text" style="font-size: large; font-weight: bold;"></span><span style="font-size: large; font-weight: bolder;">|</span>
     </div>
 </div>
+<div class="about-section">
+    <div class="paracard">
+        <p>
+            A Job Portal is an online platform designed to connect job seekers with employers in a simple, fast, and efficient manner. It acts as a bridge between talented individuals and organizations by providing a centralized space where companies can post job vacancies and candidates can explore opportunities that match their skills, qualifications, and career goals.
+            <br><br>
+            Through a job portal, job seekers can create profiles, upload resumes, search for jobs across multiple industries, apply for positions online, and track the status of their applications in real time. Features like job alerts, personalized recommendations, and advanced filters help candidates find relevant jobs more easily and save valuable time during their job search.
+        </p>
+    </div>
+    <div class="jopperson">
+        <img src="icon/jopperson.jpeg" alt="Job Portal Image" class="about-img">
+    </div>
+</div>
+
     <!-- //card of visitors -->
     <div id="login-section"class="wrapper-sec">
     <section class="hero-section"> 
@@ -98,5 +107,6 @@ Sunday: Closed</p>
     <footer style="margin-top: 0px; text-align: center;  background-color:rgb(53, 57, 55);">
         <p>&copy; 2026 My Website</p>
     </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>
