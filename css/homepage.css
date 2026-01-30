@@ -180,7 +180,7 @@ header h1{
 }
 .add-btn,
 .btn-primary {
-    background: linear-gradient(90deg, #ffae00, #ff5f00);
+    background: linear-gradient(90deg, #000000, #3d3c3b);
     border: none;
     padding: 12px 26px;
     border-radius: 12px;
