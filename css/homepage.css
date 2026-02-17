@@ -483,3 +483,7 @@ body{
     }
 }
 
+.logo i{
+    color: white;
+    padding-right: 8px;
+}
