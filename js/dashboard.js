@@ -56,3 +56,126 @@ setInterval(() => {
 //     "Get personalized job recommendations just for you."
 //   ];
 // let descIndex = 0;
+// Job Database
+
+let jobs = [
+
+{
+title:"Software Engineer",
+company:"Tech Solutions",
+location:"New York"
+},
+
+{
+title:"Data Analyst",
+company:"DataCorp",
+location:"San Francisco"
+},
+
+{
+title:"Frontend Developer",
+company:"Google",
+location:"Delhi"
+},
+
+{
+title:"Backend Developer",
+company:"Amazon",
+location:"Mumbai"
+}
+
+];
+
+
+document.getElementById("jobSearchForm")
+.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let input =
+document.getElementById("searchInput")
+.value.toLowerCase().trim();
+
+let resultsDiv =
+document.getElementById("searchResults");
+
+resultsDiv.innerHTML="";
+
+
+/* Empty Input */
+
+if(input === ""){
+alert("Please fill the search field");
+return;
+}
+
+
+/* Filter Jobs */
+
+let filtered = jobs.filter(job =>
+
+job.title.toLowerCase().includes(input) ||
+job.company.toLowerCase().includes(input) ||
+job.location.toLowerCase().includes(input)
+
+);
+
+
+/* No Result */
+
+if(filtered.length === 0){
+alert("Result Not Found");
+return;
+}
+
+
+
+/* ✅ Dynamic Heading */
+
+let heading=document.createElement("h2");
+heading.innerText="Search Results";
+
+resultsDiv.appendChild(heading);
+
+
+
+/* Dynamic Job Container */
+
+let container=document.createElement("div");
+container.classList.add("job-cards");
+
+resultsDiv.appendChild(container);
+
+
+
+/* Dynamic Cards */
+
+filtered.forEach(job =>{
+
+let card=document.createElement("div");
+
+card.classList.add("job-card");
+
+card.innerHTML=`
+
+<h3>${job.title}</h3>
+<p>Company: ${job.company}</p>
+<p>Location: ${job.location}</p>
+<button class="apply-button">
+Apply Now
+</button>
+
+`;
+
+container.appendChild(card);
+
+});
+
+
+/* Scroll */
+
+resultsDiv.scrollIntoView({
+behavior:"smooth"
+});
+
+});
