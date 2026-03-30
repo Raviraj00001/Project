@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+ <link rel="stylesheet" href="../css/dashboardRecruitor.css">
+</head>
+<body>
+<header class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+        <span class="logo-icon">J</span>
+        <span class="logo-text">Job portal</span>
+    </div>
+    <!-- Menu -->
+    <nav class="menu">
+        <a href="#">Jobs</a>
+        <a href="#">Companies</a>
+        <a href="#">Services</a>
+    </nav>
+
+    <!-- Actions -->
+    <!-- <div class="actions">
+        <button class="login-btn">Login</button>
+        <button class="register-btn">Register</button>
+        <a href="#" class="employer">For employers ▾</a>
+    </div> -->
+</header>
+
+<!-- Search Section -->
+ 
+<section class="search-section">
+    <form class="search-form">
+        <input type="search" placeholder="Search jobs">
+        <button type="submit">Search</button>
+    </form>
+</section>
+<!-- Section of card -->
+<div class="wrapper-sec">
+    <section class="Intro-section"> 
+        <h1>Welcome to Our Website</h1>
+        <p>Your success starts here.</p>
+        <p>Explore thousands of job opportunities and connect with top employers.</p>
+         </section>
+     <section class="hero-section"> 
+        <h1>Welcome to Our Website</h1>
+        <p>Your success starts here.</p>
+        <button id="post">Post Job</button>
+    </section>
+    
+</div>
+<!-- <div id="options">
+    <h3>Job Options</h3>
+    <button class="job">Remote jobs</button>
+    <button class="job">MNC</button>
+    <button class="job">Internships</button>
+    <button class="job">Startup</button>
+    <button class="job">Marketing</button>
+    <button class="job">Sales</button>
+    <button class="job">Finance</button>
+    <button class="job">Part-time</button>
+    <button class="job">Full-time</button>
+    <button class="job">Remote jobs</button>
+    <button class="job">MNC</button>
+    <button class="job">Internships</button>
+    <button class="job">Startup</button>
+    <button class="job">Marketing</button>
+    <button class="job">Sales</button>
+    <button class="job">Finance</button>
+    <button class="job">Part-time</button>
+    <button class="job">Full-time</button>
+</div> -->
+
+<div class="postjobid" id="company-hiring">
+    <h3>Current posts</h3>
+    <div class="company">
+        <h4>XYZ</h4>
+        <p>System Designer</p>
+         <button class="update">Update</button>
+        <button class="close-btn">Close</button>
+    </div>
+    <div class="company">
+        <h4>XYZ</h4>
+        <p>Software Engineer</p>
+        <button class="update">Update</button>
+        <button class="close-btn">Close</button>
+    </div>    
+</div>
+</div>
+<!-- Post Job Card (Hidden by default) -->
+<div class="post-card" id="postCard">
+    <div class="post-content">
+        <h2>Create Job Post</h2>
+        <input type="text" id="jobTitle" placeholder="Job Title">
+<input type="text" id="companyName" placeholder="Company Name">
+<input type="text" id="location" placeholder="Location">
+
+<select id="jobType">
+    <option>Full-time</option>
+    <option>Part-time</option>
+    <option>Internship</option>
+    <option>Remote</option>
+</select>
+<textarea id="jobDesc" placeholder="Job Description"></textarea>
+<button class="submit-post" id="postJobBtn">Post Job</button>
+        <div class="post-buttons">
+            <button id="closeCard">Cancel</button>
+            <!-- <button class="submit-post">Post Job</button> -->
+        </div>
+    </div>
+</div>
+<footer>
+    <p>&copy; 2025 Job Portal. All rights reserved.</p>
+</footer>
+<script src="../js/recruitordash.js"></script>
+</body>
+</html>

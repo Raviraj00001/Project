@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height:100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: rgb(168, 185, 185);
+    background-image: url(https://i.pinimg.com/1200x/ee/27/da/ee27da3857e1acff4aa6f4e7946f38bc.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/* MAIN SIGNUP CONTAINER */
+.sign-form{
+    display: flex;
+    flex-direction: column;     /* ★ Inputs will come in vertical direction */
+    align-items: center;
+    justify-content: center;
+
+    width: 350px;
+    padding: 25px;
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* INPUT BOXES */
+.sign-form input{
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid rgb(200,200,200);
+    outline: none;
+}
+
+/* BUTTON */
+button{
+    width: 150px;
+    padding: 10px;
+    cursor: pointer;
+
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:auto ;
+    margin-top: 10px;
+
+    font-weight: bold;
+    border: 1px solid rgb(234, 234, 233);
+    color: rgb(21, 19, 19);
+}
