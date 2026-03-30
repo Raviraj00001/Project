@@ -179,3 +179,49 @@ behavior:"smooth"
 });
 
 });
+// ─── Dynamic Stat Cards ───────────────────────────────────────
+
+// This is your local "database" until the backend is ready.
+// Later, replace this with a fetch() call to your Spring Boot API.
+
+const currentUser = "Ravi"; // Later: read from localStorage after login
+
+const userStats = {
+  "Ravi": {
+    appliedJobs:   5,
+    savedJobs:     12,
+    profileViews:  38,
+    interviewCalls: 2
+  }
+};
+
+function loadStats() {
+  const stats = userStats[currentUser];
+
+  if (!stats) return; // no data found, leave as-is
+
+  animateCount("no-of-jobs",          stats.appliedJobs);
+  animateCount("no-of-saved",         stats.savedJobs);
+  animateCount("no-of-profile-views", stats.profileViews);
+  animateCount("no-of-interviews",    stats.interviewCalls);
+}
+
+// Counts up from 0 to the target number with a smooth animation
+function animateCount(elementId, target) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+
+  let current = 0;
+  const step = Math.ceil(target / 40); // 40 frames to reach target
+  const interval = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      current = target;
+      clearInterval(interval);
+    }
+    el.textContent = current;
+  }, 30);
+}
+
+// ─── Load on page ready ───────────────────────────────────────
+loadStats();

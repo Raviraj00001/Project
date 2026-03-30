@@ -1,108 +1,152 @@
-// let post=document.getElementById("post");
-// post.addEventListener("click",function(){
-//     window.location.href="postjob.html";
-// })
-// let job=document.getElementById("job-title");
-// let company=document.getElementById("company-name");
-// let location=document.getElementById("location");
-// let salary=document.getElementById("salary");
-// let description=document.getElementById("job-description");
-// let submit=document.getElementById("submit");
-// let cancel=document.getElementById("cancel");
-// let companypost=document.getElementById("company-hiring");
-// submit.addEventListener("click",function(event){
-//     event.preventDefault();
-//     alert("Job posted successfully!");
-//     let postcard=document.createElement("div");
-//     postcard.innerHTML=`<h3>${job.value}</h3><p>${company.value}</p><p>${location.value}</p><p>${salary.value}</p><p>${description.value}</p>`;
-//     companypost.appendChild(postcard);
-    
-// })
-// cancel.addEventListener("click",function(){
-//     window.location.href="index.html";
-// })
+// ─── Element references ───────────────────────────────────────
 
-let postBtn = document.getElementById("post");
-let postCard = document.getElementById("postCard");
-let closeCard = document.getElementById("closeCard");
-let postJobBtn = document.getElementById("postJobBtn");
+const postBtn       = document.getElementById("post");
+const postCard      = document.getElementById("postCard");
+const closeCard     = document.getElementById("closeCard");
+const postJobBtn    = document.getElementById("postJobBtn");
+const companyHiring = document.getElementById("company-hiring");
 
-let companyHiring = document.getElementById("company-hiring");
+const jobTitleEl    = document.getElementById("jobTitle");
+const companyNameEl = document.getElementById("companyName");
+const locationEl    = document.getElementById("location");
+const jobTypeEl     = document.getElementById("jobType");
+const jobDescEl     = document.getElementById("jobDesc");
 
-// Form fields
-let jobTitle = document.getElementById("jobTitle");
-let companyName = document.getElementById("companyName");
-let locationField = document.getElementById("location");
-let jobType = document.getElementById("jobType");
-let jobDesc = document.getElementById("jobDesc");
+// Tracks which card is being edited (null = new post)
+let editingCard = null;
 
+// ─── Open modal ───────────────────────────────────────────────
 
-// 🔹 Show form
-postBtn.addEventListener("click", function () {
-    postCard.style.display = "flex";
+postBtn.addEventListener("click", () => {
+  editingCard = null;         // fresh post, not an edit
+  clearForm();
+  openModal();
 });
 
-// 🔹 Hide form
-closeCard.addEventListener("click", function () {
-    postCard.style.display = "none";
+// ─── Close modal ─────────────────────────────────────────────
+
+closeCard.addEventListener("click", () => {
+  editingCard = null;
+  clearForm();
+  closeModal();
 });
 
-// 🔹 Create Job Card
-postJobBtn.addEventListener("click", function () {
+// ─── Submit: handles both NEW post and UPDATE ─────────────────
 
-    if(jobTitle.value === "" || companyName.value === ""){
-        alert("Please fill required fields");
-        return;
+postJobBtn.addEventListener("click", () => {
+
+  const title    = jobTitleEl.value.trim();
+  const company  = companyNameEl.value.trim();
+  const location = locationEl.value.trim();
+  const type     = jobTypeEl.value;
+  const desc     = jobDescEl.value.trim();
+
+  // Validation
+  if (!title || !company) {
+    showFormError("Job title and company name are required.");
+    return;
+  }
+
+  if (editingCard) {
+    // ── UPDATE existing card ──
+    editingCard.querySelector(".card-title").textContent    = title;
+    editingCard.querySelector(".card-company").textContent  = company;
+    editingCard.querySelector(".card-location").textContent = location + (type ? " · " + type : "");
+    editingCard.querySelector(".card-desc").textContent     = desc;
+    editingCard = null;
+
+  } else {
+    // ── CREATE new card ──
+    const card = buildJobCard(title, company, location, type, desc);
+    companyHiring.appendChild(card);
+  }
+
+  clearForm();
+  closeModal();
+});
+
+// ─── Single delegated listener for Update + Close buttons ─────
+
+companyHiring.addEventListener("click", (e) => {
+
+  const card = e.target.closest(".company");
+  if (!card) return;
+
+  // Close / Delete
+  if (e.target.classList.contains("close-btn")) {
+    if (confirm("Remove this job post?")) {
+      card.remove();
     }
+    return;
+  }
 
-    let companyDiv = document.createElement("div");
-    companyDiv.classList.add("company");
+  // Update / Edit
+  if (e.target.classList.contains("update")) {
+    editingCard = card;
 
-    companyDiv.innerHTML = `
-        <h4>${companyName.value}</h4>
-        <p><strong>${jobTitle.value}</strong></p>
-        <p>${locationField.value} | ${jobType.value}</p>
-        <p>${jobDesc.value}</p>
-        <button class="update">Update</button>
-        <button class="close-btn">Close</button>
-    `;
+    // Pre-fill form with existing card data
+    jobTitleEl.value    = card.querySelector(".card-title").textContent;
+    companyNameEl.value = card.querySelector(".card-company").textContent;
+    jobDescEl.value     = card.querySelector(".card-desc").textContent;
 
-    companyHiring.appendChild(companyDiv);
+    // Split "Mumbai · Full-time" back into location and type
+    const locType = card.querySelector(".card-location").textContent.split(" · ");
+    locationEl.value = locType[0] || "";
+    jobTypeEl.value  = locType[1] || "Full-time";
 
-    // Clear form
-    jobTitle.value = "";
-    companyName.value = "";
-    locationField.value = "";
-    jobDesc.value = "";
-
-    postCard.style.display = "none";
+    openModal();
+  }
 });
-companyHiring.addEventListener("click", function(e) {
 
-    if (e.target.classList.contains("close-btn")) {
-        let card = e.target.parentElement;
-        card.remove();
-    }
+// ─── Helpers ──────────────────────────────────────────────────
 
-});
-companyHiring.addEventListener("click", function(e) {
+function openModal() {
+  postCard.style.display = "flex";
+}
 
-    if (e.target.classList.contains("update")) {
+function closeModal() {
+  postCard.style.display = "none";
+  clearFormError();
+}
 
-        let card = e.target.parentElement;
+function clearForm() {
+  jobTitleEl.value    = "";
+  companyNameEl.value = "";
+  locationEl.value    = "";
+  jobDescEl.value     = "";
+  jobTypeEl.value     = "Full-time";
+}
 
-        let companyName = card.querySelector("h4").innerText;
-        let jobTitle = card.querySelector("p").innerText;
+function showFormError(msg) {
+  let err = document.getElementById("formError");
+  if (!err) {
+    err = document.createElement("p");
+    err.id = "formError";
+    err.style.color     = "red";
+    err.style.fontSize  = "13px";
+    err.style.textAlign = "center";
+    postJobBtn.before(err);
+  }
+  err.textContent = msg;
+}
 
-        // Open modal
-        postCard.style.display = "flex";
+function clearFormError() {
+  const err = document.getElementById("formError");
+  if (err) err.textContent = "";
+}
 
-        // Fill existing data in form
-        document.getElementById("companyName").value = companyName;
-        document.getElementById("jobTitle").value = jobTitle;
+function buildJobCard(title, company, location, type, desc) {
+  const card = document.createElement("div");
+  card.classList.add("company");
 
-        // Remove old card
-        card.remove();
-    }
+  card.innerHTML = `
+    <h4 class="card-company">${company}</h4>
+    <p class="card-title"><strong>${title}</strong></p>
+    <p class="card-location">${location}${type ? " · " + type : ""}</p>
+    <p class="card-desc">${desc}</p>
+    <button class="update">Update</button>
+    <button class="close-btn">Close</button>
+  `;
 
-});
+  return card;
+}
