@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job-Portal-Signup_Page</title>
+    <link rel="stylesheet" href="Signup.css">
+</head>
+<body>
+    <form id="signupForm">
+
+  <div class="row">
+    <input type="text" id="firstName" placeholder="First name" required>
+    <input type="text" id="lastName" placeholder="Last name" required>
+  </div>
+
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="password" id="password" placeholder="Password" required>
+
+  <div class="role-box">
+    <label>Select Role</label>
+
+    <div class="roles">
+      <input type="radio" id="jobSeeker" name="role" value="Job Seeker" required>
+      <label for="jobSeeker" class="role-btn">Job Seeker</label>
+
+      <input type="radio" id="recruiter" name="role" value="Recruiter">
+      <label for="recruiter" class="role-btn">Recruiter</label>
+    </div>
+  </div>
+
+  <div class="btns">
+    <button type="submit" class="btn-blue">Create account</button>
+  </div>
+
+</form>
+
+<script src="Signup.js"></script>
+</body>
+
+</html>
