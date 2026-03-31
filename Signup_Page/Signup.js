@@ -1,4 +1,3 @@
-// SIGNUP
 const form = document.getElementById("signupForm");
 
 form.addEventListener("submit", function(e) {
@@ -8,30 +7,34 @@ form.addEventListener("submit", function(e) {
   const lastName = document.getElementById("lastName").value.trim();
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
-  const role = document.querySelector('input[name="role"]:checked')?.value;
 
-  // validation
-  if (!firstName || !lastName || !email || !password || !role) {
-    alert("Please fill all fields ❌");
-    return;
-  }
+  // ✅ get selected role
+  const role = document.querySelector('input[name="role"]:checked').value;
 
   let users = JSON.parse(localStorage.getItem("users")) || [];
 
-  // check duplicate email
-  const exists = users.find(user => user.email === email);
+  // check if user already exists
+  const exists = users.some(u => u.email === email);
+
   if (exists) {
-    alert("Email already registered ❌");
+    alert("User already exists ❌");
     return;
   }
 
-  const user = { firstName, lastName, email, password, role };
+  const newUser = {
+    firstName,
+    lastName,
+    email,
+    password,
+    role // 🔥 important
+  };
 
-  users.push(user);
+  users.push(newUser);
+
   localStorage.setItem("users", JSON.stringify(users));
 
-  alert("Account created successfully ✅");
+  alert("Signup successful ✅");
 
-  // redirect to login
-  window.location.href = "../Login_page/login.html";
+  // redirect to login page
+  window.location.href = "../Login/Login.html";
 });

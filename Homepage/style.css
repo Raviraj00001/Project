@@ -6,6 +6,17 @@
 }
 body{
     background-image: url(../src_images/bgforjob.png);
+   margin: 0;
+  height: 100vh;
+
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6), 
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../src_images/bgforjob.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
     background-attachment: fixed;
 }
 /* ---------------- HERO SECTION ---------------- */
@@ -128,7 +139,12 @@ header {
 header h1{
     color: white;
 }
-
+.banner h1{
+    color: white;
+}
+.logo{
+    color: white;
+}
 .banner{
     margin-top: 80px;
     padding: 40px;

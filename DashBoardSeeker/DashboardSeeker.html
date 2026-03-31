@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+   <link rel="stylesheet" href="DashboardSeeker.css">
+   <!-- <link rel="stylesheet" href="css/iconuse.css"> -->
+    <link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+  rel="stylesheet"
+/>
+</head>
+<body>
+<div class="dashboard">
+<div class="sidebar">
+  <div class="logo">
+    <div class="logo-icon">H</div>
+    <span class="logo-text">HireHub</span>
+  </div>
+  <ul class="menu">
+    <li class="menu-item active">
+      <span><i class="ri-apps-line"></i>Dashboard</span>
+    </li>
+    <li class="menu-item"><i class="ri-menu-search-line"></i>Job Search </li>
+    <li class="menu-item"><i class="ri-chat-2-line"></i>Applications</li>
+    <li class="menu-item"><i class="ri-mail-line"></i>Company Posts</li>
+    <li class="menu-item"><i class="ri-notification-2-line"></i>Notifications</li>
+    <li class="menu-item"><i class="ri-settings-2-line"></i>Log out </li>
+  </ul>
+</div>
+<div class="wrapper1">
+<!-- top-navbar -->
+<div class="top-navbar">
+    <div class="search-bar">
+         <form class="search-form">
+                <input type="search" placeholder=" 🔍Search jobs, companies..." />
+                <button  type="submit">Search</button>
+          </form>
+    </div>
+    <div class="user-profile">
+        <img src="icon/jopperson.jpeg" alt="User Avatar" class="avatar">
+        <span class="username">Ravi Raj</span>
+    </div>
+</div>
+<!-- greetings -->
+<div class="greetings-section">
+    <h1 id="heading1">Welcome to Your Dashboard</h1><h2 id="heading2">Hello, Ravi!</h2>
+    <p id="para1">Here you can manage your job search, view saved jobs, track applications, and more.</p>
+</div> 
+<!-- main content -->
+ <div class="main-content">
+  <!-- applied-jobs -->
+   <div class="content1">
+    <span><i class="ri-briefcase-2-fill"></i></span>
+    <span id="no-of-jobs">1</span>
+    <p>Applied Jobs </p>
+  </div>
+ <!-- saved-jobs -->
+  <div class="content1">
+    <span><i class="ri-bookmark-fill"></i></span>
+   <span id="no-of-saved">1</span>
+    <p>Saved jobs </p>
+  </div>
+ <!-- profile-views -->
+ <div class="content1">
+    <span><i class="ri-eye-fill"></i></span>
+    <span id="no-of-profile-views">1</span>
+    <p>Profile Views</p>
+  </div>
+ <!-- interviews-calls -->
+ <div class="content1">
+    <span><i class="ri-phone-fill"></i></span>
+    <span id="no-of-interviews">1</span>
+    <p>Interviews Calls</p>
+  </div>
+ </div>
+</div>
+<script src="DashboardSeeker.js"></script>
+<script src="https://kit.fontawesome.com/829aa81267.js" crossorigin="anonymous"></script>
+</body>
+</html>
